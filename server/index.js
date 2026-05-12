@@ -226,6 +226,10 @@ app.get("*", (_req, res) => {
   res.sendFile(path.join(distPath, "index.html"));
 });
 
-app.listen(port, () => {
-  console.log(`LinkedIn Growth Agent running on http://localhost:${port}`);
-});
+export default app;
+
+if (process.env.NODE_ENV !== "production") {
+  app.listen(port, () => {
+    console.log(`LinkedIn Growth Agent running on http://localhost:${port}`);
+  });
+}
